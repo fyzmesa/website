@@ -155,8 +155,7 @@ if ($conn->connect_error) {
 }
 
 echo "<h2>People List</h2>";
-echo "<table border='0' class='center-table'>";
-echo "<tr><th>Name</th><th>Email</th></tr>";
+echo "<table border='0' class='center-table'><tr><th>Name</th><th>Email</th></tr>";
 
 $sql = "SELECT name, email FROM people";
 $result = $conn->query($sql);
@@ -189,7 +188,6 @@ $conn->close();
 </head>
 <body>
     <div class="table-page">
-        <h2>People List</h2>
         <div id="table-container"></div>
         <a href="form.html">Add another person</a>
     </div>
