@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People List</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('list.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('table-container').innerHTML = data;
+            });
+    });
+    </script>
+</head>
+<body>
+    <div class="table-page">
+        <div id="table-container"></div>
+        <a href="form.html">Add another person</a>
+    </div>
+</body>
+</html>
