@@ -1,5 +1,5 @@
 ## WEBSITE
-# How to make a dynamic website using: HTML, CSS, PHP, MySQL and Apache2
+# How to make a dynamic website using: HTML, CSS, PHP, MySQL and Apache2 on Ubuntu
 
 # 1. Install softwares and dependencies
 ```bash
