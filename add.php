@@ -17,7 +17,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $name, $email);
 
 if ($stmt->execute()) {
-    echo "New record added successfully. <a href='list.php'>See all people</a>";
+    echo "New record added successfully. <a href='list.html'>See all people</a>";
 } else {
     echo "Error: " . $stmt->error;
 }
