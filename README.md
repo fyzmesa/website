@@ -155,7 +155,7 @@ if ($conn->connect_error) {
 }
 
 echo "<h2>People List</h2>";
-echo "<table border='0' class="center-table">";
+echo "<table border='0' class='center-table'>";
 echo "<tr><th>Name</th><th>Email</th></tr>";
 
 $sql = "SELECT name, email FROM people";
