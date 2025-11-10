@@ -93,7 +93,7 @@ input[type="submit"]:hover {
 $servername = "localhost";
 $username = "admin";
 $password = "ENTERYOURPASSWORD";
-$dbname = "simple_site";
+$dbname = "people";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -123,7 +123,7 @@ $conn->close();
 $servername = "localhost";
 $username = "admin";     
 $password = "ENTERYOURPASSWORD";
-$dbname = "simple_site";
+$dbname = "people";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
