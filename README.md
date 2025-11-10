@@ -1,5 +1,5 @@
 # WEBSITE
-## How to make a dynamic website using: HTML, CSS, PHP, MySQL and Apache2 on Ubuntu
+## How to make a dynamic website using: HTML, CSS, PHP, MySQL and Apache2
 
 ### 1. Install softwares and dependencies
 ```bash
@@ -53,38 +53,62 @@ FLUSH PRIVILEGES;
 ### 4. Create the CSS file (style.css)
 ```css
 body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    margin: 40px;
+    background: #f5f8fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-form {
+
+.table-page {
+    width: 500px;
+    margin: 60px auto;
     background: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
+    padding: 30px 40px 20px 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.11);
+    text-align: center;
 }
-label {
-    font-weight: bold;
+
+h2 {
+    margin-bottom: 22px;
 }
-input[type="text"], input[type="email"] {
-    width: 95%;
-    padding: 8px;
-    margin: 5px 0 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+.center-table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-collapse: collapse;
 }
-input[type="submit"] {
-    background: #28a745;
+
+.center-table th, .center-table td {
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid #ececec;
+}
+
+.center-table th {
     color: #fff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 4px;
-    cursor: pointer;
+    background: #007bff;
 }
-input[type="submit"]:hover {
-    background: #218838;
+
+.center-table tr:nth-child(even) {
+    background: #f1f6fc;
 }
+
+.center-table tr:last-child td {
+    border-bottom: none;
+}
+
+a {
+    display: block;
+    margin-top: 22px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 ```
 
 ### 5. Create the PHP file to handle form submission (add.php)
@@ -93,7 +117,7 @@ input[type="submit"]:hover {
 $servername = "localhost";
 $username = "admin";
 $password = "ENTERYOURPASSWORD";
-$dbname = "people";
+$dbname = "simple_site";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -123,7 +147,7 @@ $conn->close();
 $servername = "localhost";
 $username = "admin";     
 $password = "ENTERYOURPASSWORD";
-$dbname = "people";
+$dbname = "simple_site";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -131,7 +155,8 @@ if ($conn->connect_error) {
 }
 
 echo "<h2>People List</h2>";
-echo "<table border='1'><tr><th>Name</th><th>Email</th></tr>";
+echo "<table border='0' class="center-table">";
+echo "<tr><th>Name</th><th>Email</th></tr>";
 
 $sql = "SELECT name, email FROM people";
 $result = $conn->query($sql);
@@ -139,8 +164,36 @@ $result = $conn->query($sql);
 while($row = $result->fetch_assoc()) {
     echo "<tr><td>" . htmlspecialchars($row["name"]) . "</td><td>" . htmlspecialchars($row["email"]) . "</td></tr>";
 }
-echo "</table><br><a href='form.html'>Add another person</a>";
+echo "</table>";
 
 $conn->close();
 ?>
+```
+
+### 7. Create the HTML that calls list.php (list.html)
+```xml
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People List</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('list.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('table-container').innerHTML = data;
+            });
+    });
+    </script>
+</head>
+<body>
+    <div class="table-page">
+        <h2>People List</h2>
+        <div id="table-container"></div>
+        <a href="form.html">Add another person</a>
+    </div>
+</body>
+</html>
+
 ```
