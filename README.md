@@ -1,7 +1,7 @@
-## WEBSITE
-# How to make a dynamic website using: HTML, CSS, PHP, MySQL and Apache2 on Ubuntu
+# WEBSITE
+## How to make a dynamic website using: HTML, CSS, PHP, MySQL and Apache2 on Ubuntu
 
-# 1. Install softwares and dependencies
+### 1. Install softwares and dependencies
 ```bash
 sudo apt install apache2
 sudo apt install mariadb-server mariadb-client php
@@ -9,7 +9,7 @@ sudo apt install php-mysql php-xml php-curl php-mbstring
 sudo apt install libapache2-mod-php
 ```
 
-# 2. Create the database and user
+### 2. Create the database and user
 ```bash
 sudo mysql -u root -p
 ```
@@ -29,7 +29,7 @@ GRANT ALL PRIVILEGES ON simple_website.* TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-# 3. Create the HTML form (form.html)
+### 3. Create the HTML form (form.html)
 ```xml
 <!DOCTYPE html>
 <html>
@@ -50,7 +50,7 @@ FLUSH PRIVILEGES;
 </html>
 ```
 
-# 4. Create the CSS file (style.css)
+### 4. Create the CSS file (style.css)
 ```css
 body {
     font-family: Arial, sans-serif;
@@ -87,7 +87,7 @@ input[type="submit"]:hover {
 }
 ```
 
-# 5. Create the PHP file to handle form submission (add.php)
+### 5. Create the PHP file to handle form submission (add.php)
 ```php
 <?php
 $servername = "localhost";
@@ -117,7 +117,7 @@ $conn->close();
 ?>
 ```
 
-# 6. Create the PHP file to display records (list.php) 
+### 6. Create the PHP file to display records (list.php) 
 ```php
 <?php
 $servername = "localhost";
