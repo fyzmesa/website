@@ -46,6 +46,7 @@ FLUSH PRIVILEGES;
         <input type="email" id="email" name="email" required><br><br>
         <input type="submit" value="Add">
     </form>
+    <a href="list.html">Show list</a>
 </body>
 </html>
 ```
